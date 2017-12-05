@@ -431,6 +431,8 @@ func (v *vcsCmd) run1(dir string, cmdline string, keyval []string, verbose bool)
 	var buf bytes.Buffer
 	cmd.Stdout = &buf
 	cmd.Stderr = &buf
+	cmd.Stdout = os.Stdout
+	cmd.Stderr = os.Stderr
 	err = cmd.Run()
 	out := buf.Bytes()
 	if err != nil {
